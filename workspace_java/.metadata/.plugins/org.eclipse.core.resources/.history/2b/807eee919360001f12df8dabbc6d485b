@@ -1,0 +1,21 @@
+package practice.cafeGPT;
+
+public class CafeMain {
+
+	public static void main(String[] args) {
+		Cafe starbucks = new Cafe("스타벅스");
+		Cafe akaCafe = new Cafe("아카카페");
+		
+		starbucks.addCoffee(new Coffee("아메리카노", 5000));
+		starbucks.addCoffee(new Coffee("카푸치노", 6000));
+		starbucks.addCoffee(new Coffee("카라멜 마끼아또", 7000));
+		
+		akaCafe.addCoffee(new Coffee("아메리카노", 2500));
+		akaCafe.addCoffee(new Coffee("바닐라 라떼", 3000));
+		akaCafe.addCoffee(new Coffee("아이스티", 3500));
+		
+		whi
+		
+	}
+
+}

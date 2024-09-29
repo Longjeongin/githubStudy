@@ -1,0 +1,78 @@
+package practice.Result07;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import ch09_class.quiz.MovieDB;
+
+public class Cafe {
+
+	String name;
+	ArrayList<Coffee> coffeeMenu = new ArrayList<>();
+	Scanner scanner = new Scanner(System.in);
+	
+	public Cafe() {
+		super();
+	}
+	public Cafe(String name) {
+		super();
+		this.name = name;
+	}
+	public Cafe(String name, ArrayList<Coffee> coffeeMenu) {
+		super();
+		this.name = name;
+		this.coffeeMenu = coffeeMenu;
+	}
+	@Override
+	public String toString() {
+		return "Cafe [name=" + name + ", coffeeMenu=" + coffeeMenu + "]";
+	}
+	
+	
+	public void addCoffee(String name, int price) {
+		coffeeMenu.add(new Coffee(name, price));
+	}
+	
+	public void showMenu() {
+		for (int i = 0; i < coffeeMenu.size(); i++) {
+			System.out.println(coffeeMenu.get(i));
+		}
+	}
+	
+	public void buyCoffee() {
+		while (true) {
+			System.out.println("행동을 선택해주세요.");
+			System.out.println("1. 스타벅스 방문 | 2. 아카 방문 | 3. 사무실 복귀");
+			System.out.print(">>>");
+			String userInput = scanner.nextLine();
+			int userChoice = Integer.parseInt(userInput);
+			if (userChoice == 3) {
+				System.out.println("사무실로 복귀합니다.");
+				break;
+			}else if (userChoice == 1){
+				System.out.println("어서오세요 스타벅스 입니다.");
+				for (int i = 0; i < coffeeMenu.size(); i++) {
+					System.out.println((i+1)+ ". " + coffeeMenu.get(i));
+				}
+				System.out.println("메뉴를 선택해주세요.");
+				System.out.print(">>>");
+				String userInput2 =  scanner.nextLine();
+				int userChoice2 = Integer.parseInt(userInput2);
+					System.out.println(coffeeMenu.get(userChoice2-1).getName() + "를 " +  
+				                       coffeeMenu.get(userChoice2-1).getPrice() + "원에 구매했습니다.\n");
+			}else if(userChoice == 2) {
+				System.out.println("어서오세요 아카 입니다.");
+				for (int i = 0; i < coffeeMenu.size(); i++) {
+					System.out.println((i+1)+ ". " + coffeeMenu.get(i));
+				}
+				System.out.println("메뉴를 선택해주세요.");
+				System.out.print(">>>");
+				String userInput2 =  scanner.nextLine();
+				int userChoice2 = Integer.parseInt(userInput2);
+					System.out.println(coffeeMenu.get(userChoice2-1).getName() + "를 " +  
+				                       coffeeMenu.get(userChoice2-1).getPrice() + "원에 구매했습니다.\n");
+			}
+		}	
+	}
+	
+}

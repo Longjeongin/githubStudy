@@ -1,0 +1,64 @@
+package practice;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Scanner;
+
+public class Result05 {
+
+	public static void main(String[] args) {
+		// 로또번호 생성 메서드 1 ~ 45까지 랜덤숫자 6개를 오름차순으로 출력
+		// makeLotto() 중복 x
+	
+		
+		Scanner scan = new Scanner(System.in);
+		ArrayList<Integer> weekLotto = null;
+
+		String userInput1 = scan.nextLine();
+		
+		String userInput2 = scan.nextLine();
+		String [] numArr = userInput2.split(" ");
+
+
+		
+		weekLotto = makeLotto(numArr);
+		
+		System.out.println(weekLotto.toString());
+		// 상황1 n을 입력하면 전체 자동생성
+		// 상황2 y를 입력하고 4 10 과같이 띄어쓰기로 입력
+
+	}
+	public static ArrayList<Integer> makeLotto(String yesORno) {
+		ArrayList<Integer> lottoNumber = new ArrayList<Integer>();
+		if (yesORno == "n") {
+			for (int i = 0; i < 6; i++) {
+				int randomNumber = (int) (Math.random() * 45) + 1;
+				lottoNumber.add(randomNumber);
+			}
+		}
+		Collections.sort(lottoNumber);
+		return lottoNumber;
+	}
+	public static ArrayList<Integer> makeLotto(String yesORno, 
+									 ArrayList<String> numArr) {
+		HashSet<Integer> lottoNumber = new HashSet<Integer>();
+		if (yesORno == "y") {
+			for (int i = 0; i < numArr.size(); i++) {
+				int numArrInt = Integer.parseInt(numArr.get(i));
+				lottoNumber.add(numArrInt);
+				
+			}
+			for (int i = 0; i < 6 - numArr.size(); i++) {
+				int randomNumber = (int) (Math.random() * 45) + 1;
+				lottoNumber.add(randomNumber);
+			}
+		}
+		ArrayList<Integer> lottoNumberfn = new ArrayList<Integer>(lottoNumber);
+		Collections.sort(lottoNumberfn);
+		return lottoNumberfn;
+		} 
+	}
+
+
+

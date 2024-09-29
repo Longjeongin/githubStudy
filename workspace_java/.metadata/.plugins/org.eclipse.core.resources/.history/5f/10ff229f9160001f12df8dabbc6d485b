@@ -1,0 +1,29 @@
+package practice.Result07;
+
+import java.util.ArrayList;
+
+public class CafeMain {
+
+	public static void main(String[] args) {
+		ArrayList<Coffee> starbucksMenu = new ArrayList<>() ;
+		Cafe starbucks = new Cafe("starbucks", starbucksMenu);
+		starbucks.addCoffee("아메리카노", 5000);
+		starbucks.addCoffee("카푸치노", 6000);
+		starbucks.addCoffee("오곡라떼", 7000);
+	
+		ArrayList<Coffee> akaMenu = new ArrayList<>() ;
+		Cafe akaCafe = new Cafe("akaCafe", akaMenu);
+		akaCafe.addCoffee("아메리카노", 2500);
+		akaCafe.addCoffee("바닐라라떼", 3000);
+		akaCafe.addCoffee("아이스티", 3500);
+		starbucks.showMenu();
+		akaCafe.showMenu();
+		System.out.println(starbucks);
+		System.out.println(akaCafe);
+		
+		
+		
+		
+	}
+
+}
